@@ -1,0 +1,3 @@
+npx prisma generate -> untuk update librarynya prisma
+npx prisma db push -> push db
+npx prisma studio  -> untuk test CRUD dari prisma

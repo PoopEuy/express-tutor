@@ -4,8 +4,12 @@
 
 const prisma = require("../db");
 
-const findProducts = async () => {
-  const products = await prisma.product.findMany();
+const findProducts = async (name) => {
+  const products = await prisma.product.findMany({
+    where: name
+      ? { name: { contains: name, mode: "insensitive" } }
+      : undefined,
+  });
 
   return products;
 };

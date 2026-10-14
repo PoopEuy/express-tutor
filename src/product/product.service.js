@@ -9,8 +9,8 @@ const {
   editProduct,
 } = require("./product.repository");
 
-const getAllProducts = async () => {
-  const products = await findProducts();
+const getAllProducts = async (name) => {
+  const products = await findProducts(name);
 
   return products;
 };

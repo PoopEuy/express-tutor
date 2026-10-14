@@ -6,7 +6,12 @@ const { prisma } = require("../db/index.js");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const products = await prisma.product.findMany();
+  const { name } = req.query;
+  const products = await prisma.product.findMany({
+    where: name
+      ? { name: { contains: name, mode: "insensitive" } }
+      : undefined,
+  });
   res.send(products);
 });
 

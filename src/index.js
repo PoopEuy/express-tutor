@@ -21,13 +21,10 @@ const customerController = require("./customer/customer.controller.js");
 const discountController = require("./discount/discount.controller.js");
 
 app.use("/products", productController);
-
-//customer
+app.use("/auth", authController);
 app.use("/customers", customerController);
-//localhost:2000/products
-
 //discount
-http: app.use("/discounts", discountController);
+app.use("/discounts", discountController);
 //localhost:2000/discounts?badge=GOLD&purchase=1000000&isBirthday=true
 
 http: app.listen(PORT, () => {

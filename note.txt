@@ -1,3 +1,12 @@
 npx prisma generate -> untuk update librarynya prisma
 npx prisma db push -> push db
 npx prisma studio  -> untuk test CRUD dari prisma
+
+note  : 
+
+
+customer test : 
+http://localhost:2000/customers
+
+discount test :  
+http://localhost:2000/discounts?badge=GOLD&purchase=1000000&isBirthday=true

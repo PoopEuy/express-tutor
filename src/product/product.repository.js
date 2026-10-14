@@ -1,14 +1,10 @@
 // Berkomunikasi dengan database
-// Boleh pake ORM, boleh raw query
-// Supaya apa? Supaya kalo mau ganti2 ORM tinggal edit di file ini aja
 
-const prisma = require("../db");
+const { prisma } = require("../db/index.js");
 
 const findProducts = async (name) => {
   const products = await prisma.product.findMany({
-    where: name
-      ? { name: { contains: name, mode: "insensitive" } }
-      : undefined,
+    where: name ? { name: { contains: name, mode: "insensitive" } } : undefined,
   });
 
   return products;

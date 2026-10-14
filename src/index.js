@@ -16,9 +16,20 @@ app.get("/api", (req, res) => {
 const productController = require("./product/product.controller.js");
 const authController = require("./auth/auth.controller.js");
 
-app.use("/products", productController);
-app.use("/auth", authController);
+const customerController = require("./customer/customer.controller.js");
 
-app.listen(PORT, () => {
+const discountController = require("./discount/discount.controller.js");
+
+app.use("/products", productController);
+
+//customer
+app.use("/customers", customerController);
+//localhost:2000/products
+
+//discount
+http: app.use("/discounts", discountController);
+//localhost:2000/discounts?badge=GOLD&purchase=1000000&isBirthday=true
+
+http: app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

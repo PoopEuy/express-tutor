@@ -1,6 +1,6 @@
-//service bertujuan untuk handle bisnis logic, misal validasi data, transformasi data, dll dan reuseable untuk controller lain
+// Service layer bertujuan untuk handle business logic
 
-const prisma = require("../db");
+const { prisma } = require("../db/index.js");
 const {
   findProducts,
   findProductById,
@@ -9,8 +9,8 @@ const {
   editProduct,
 } = require("./product.repository");
 
-const getAllProducts = async (name) => {
-  const products = await findProducts(name);
+const getAllProducts = async () => {
+  const products = await findProducts();
 
   return products;
 };
